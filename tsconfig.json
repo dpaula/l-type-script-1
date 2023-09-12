@@ -3,7 +3,9 @@
     //definindo que ao compilar, os arquivos js serão gerados na pasta dist/js
     "outDir": "./dist/js",
     //definindo que os arquivos js serão gerados no formato ES6
-    "target": "ES6"
+    "target": "ES6",
+    // definindo que o compilador não irá gerar arquivos js para os arquivos ts compilados com erro
+    "noEmitOnError": true
   },
   //definindo quais arquivos serão compilados
   "include": [
