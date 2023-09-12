@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    //definindo que ao compilar, os arquivos js serão gerados na pasta dist/js
+    "outDir": "./dist/js",
+    //definindo que os arquivos js serão gerados no formato ES6
+    "target": "ES6"
+  },
+  //definindo quais arquivos serão compilados
+  "include": [
+    "app/**/*"
+  ]
+}
