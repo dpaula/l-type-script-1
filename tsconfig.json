@@ -5,7 +5,9 @@
     //definindo que os arquivos js serão gerados no formato ES6
     "target": "ES6",
     // definindo que o compilador não irá gerar arquivos js para os arquivos ts compilados com erro
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    // define que o compilador não irá aceitar variáveis com tipo implícito
+    "noImplicitAny": true
   },
   //definindo quais arquivos serão compilados
   "include": [
