@@ -14,11 +14,15 @@ export class NegociacaoController {
     }
     adiciona() {
         const negociacao = this.criaNegociacao();
-        negociacao.data.setDate(12);
-        this.negociacoes.adiciona(negociacao);
-        this.negociacoesView.update(this.negociacoes);
-        this.mensagemView.update('Negociação adicionada com sucesso!');
-        this.limparFormulario();
+        // 0 = domingo, 6 = sábado
+        if (negociacao.data.getDay() > 0 && negociacao.data.getDay() < 6) {
+            this.negociacoes.adiciona(negociacao);
+            this.atualizaView();
+            this.limparFormulario();
+        }
+        else {
+            this.mensagemView.update('Negociações só podem ser realizadas em dias úteis!');
+        }
     }
     criaNegociacao() {
         // expres˜ao regular para substituir o - por ,
@@ -33,5 +37,9 @@ export class NegociacaoController {
         this.inputQuantidade.value = '';
         this.inputValor.value = '';
         this.inputData.focus();
+    }
+    atualizaView() {
+        this.negociacoesView.update(this.negociacoes);
+        this.mensagemView.update('Negociação adicionada com sucesso!');
     }
 }
