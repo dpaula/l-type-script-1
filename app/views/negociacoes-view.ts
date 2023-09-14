@@ -21,10 +21,10 @@ export class NegociacoesView extends View<Negociacoes> {
                 ${model.lista().map(negociacao => {
                     return `
                             <tr>
-                            <td>${this.formatDateToString(negociacao.data)}</td>
-                            <td>${negociacao.quantidade}</td>
-                            <td>${negociacao.valor}</td>
-                            <td>${negociacao.volume}</td>
+                                <td>${this.formatDateToString(negociacao.data)}</td>
+                                <td>${negociacao.quantidade}</td>
+                                <td>${negociacao.valor}</td>
+                                <td>${negociacao.volume}</td>
                             </tr>
                         `;
                 }).join('')}
