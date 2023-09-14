@@ -1,3 +1,4 @@
+import { DiaDaSemana } from "../enums/dias-da-semana.js";
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { MensagemView } from "../views/mensagem-view.js";
@@ -14,15 +15,13 @@ export class NegociacaoController {
     }
     adiciona() {
         const negociacao = this.criaNegociacao();
-        // 0 = domingo, 6 = sábado
-        if (negociacao.data.getDay() > 0 && negociacao.data.getDay() < 6) {
-            this.negociacoes.adiciona(negociacao);
-            this.atualizaView();
-            this.limparFormulario();
-        }
-        else {
+        if (!this.isDiaUtil(negociacao.data)) {
             this.mensagemView.update('Negociações só podem ser realizadas em dias úteis!');
+            return;
         }
+        this.negociacoes.adiciona(negociacao);
+        this.atualizaView();
+        this.limparFormulario();
     }
     criaNegociacao() {
         // expres˜ao regular para substituir o - por ,
@@ -31,6 +30,9 @@ export class NegociacaoController {
         const quantidade = parseInt(this.inputQuantidade.value);
         const valor = parseFloat(this.inputValor.value);
         return new Negociacao(date, quantidade, valor);
+    }
+    isDiaUtil(data) {
+        return (data.getDay() > DiaDaSemana.DOMINGO && data.getDay() < DiaDaSemana.SABADO);
     }
     limparFormulario() {
         this.inputData.value = '';
