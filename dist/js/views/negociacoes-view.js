@@ -34,7 +34,6 @@ export class NegociacoesView extends View {
     }
     update(model) {
         const template = this.template(model);
-        console.log(template);
         this.elemento.innerHTML = template;
     }
 }

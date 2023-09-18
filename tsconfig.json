@@ -11,7 +11,9 @@
     // define que os comentários do arquivo ts não serão compilados para o arquivo js
     "removeComments": true,
     // obriga a não atribuição de valores nulos ou indefinidos
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    // informa ao compilador que será utilizado decorators
+    "experimentalDecorators": true
   },
   //definindo quais arquivos serão compilados
   "include": [
