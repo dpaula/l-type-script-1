@@ -9,7 +9,9 @@
     // define que o compilador não irá aceitar variáveis com tipo implícito
     "noImplicitAny": true,
     // define que os comentários do arquivo ts não serão compilados para o arquivo js
-    "removeComments": true
+    "removeComments": true,
+    // obriga a não atribuição de valores nulos ou indefinidos
+    "strictNullChecks": true
   },
   //definindo quais arquivos serão compilados
   "include": [
