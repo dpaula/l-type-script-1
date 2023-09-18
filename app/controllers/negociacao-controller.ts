@@ -20,6 +20,9 @@ export class NegociacaoController {
     }
 
     adiciona(): void {
+        /**
+         * O método criaDe() é um método estático da classe Negociacao.
+         */
         const negociacao = Negociacao.criaDe(
             this.inputData.value,
             this.inputQuantidade.value,
