@@ -1,9 +1,10 @@
-import { Negociacao } from "../models/negociacao.js";
+import { escapar } from "../decorators/escapar.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { View } from "./view.js";
 
 export class NegociacoesView extends View<Negociacoes> {
 
+    @escapar
     protected template(model: Negociacoes): string {
         return `
             <table class="table table-hover table-bordered">
@@ -36,11 +37,5 @@ export class NegociacoesView extends View<Negociacoes> {
 
     private formatDateToString(data: Date): string {
         return new Intl.DateTimeFormat().format(data);
-    }
-
-    update(model: Negociacoes): void {
-        const template = this.template(model);
-
-        this.elemento.innerHTML = template;
     }
 }
